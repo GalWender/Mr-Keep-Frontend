@@ -1,0 +1,161 @@
+@import '../../../styles.scss';
+
+.note-add {
+    .container-note-add {
+        background-color: $white;
+        border-radius: 6px;
+        margin-top: 30px;
+
+        .input-note-add {
+            border: none;
+            outline: none;
+            width: 600px;
+            height: 45px;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            border-radius: 6px;
+            font-size: $size - 1px;
+            font-family: roboto;
+            color: black;
+            font-weight: 500;
+            padding-left: 15px;
+            box-shadow: $boxshadow-4;
+
+            &::placeholder {
+                color: black;
+            }
+        }
+
+        .svg {
+            position: absolute;
+            width: 45px;
+            height: 45px;
+            padding: 10px;
+            border-radius: 50%;
+            opacity: 0.5;
+
+            &:hover {
+                background-color: $light-gray2;
+                cursor: pointer;
+                opacity: 1;
+            }
+        }
+
+        .svg-image {
+            margin-left: 540px;
+        }
+
+        .svg-checkbox {
+            margin-left: 490px;
+        }
+
+        .add-note-text-open {
+            background-color: $white;
+            box-shadow: $boxshadow-4;
+            border-radius: 6px;
+
+            .top {
+                background-color: $white;
+                width: 600px;
+
+                .title {
+                    padding: 10px;
+                    padding-left: 16px;
+                    padding-right: 16px;
+                    font-family: roboto;
+                    font-size: $size;
+                    width: 550px;
+                    outline: none;
+                    border: none;
+                    font-weight: 300;
+                    height: 45px;
+                }
+
+                .svg-pin {
+                    // position: absolute;
+                    width: 38px;
+                    height: 38px;
+                    padding: 6px;
+                    margin: 5px;
+                    margin-left: 550px;
+                }
+            }
+
+            .middle {
+                background-color: $white;
+
+                [contentEditable=true]:empty:before {
+                    content: attr(datatext)
+                }
+
+                [contentEditable=true]:empty:before {
+                    font-weight: 500;
+                    color: black;
+                    opacity: 0.8;
+                    font-size: calc($size - 2px);
+                    font-family: roboto;
+                    cursor: text;
+                }
+
+                .text {
+                    padding: 10px;
+                    padding-left: 16px;
+                    padding-right: 16px;
+                    font-family: roboto;
+                    width: 600px;
+                    outline: none;
+                    border: none;
+                    min-height: 100%;
+                }
+            }
+
+            .bottom {
+                width: 600px;
+                height: 35px;
+                background-color: $white;
+                display: flex;
+                align-items: center;
+                margin-bottom: 2px;
+
+                .svg {
+                    width: 30px;
+                    height: 30px;
+                    padding: 6px;
+                }
+                .svg-bell-plus {
+                    margin-left: 12px;
+                }
+
+                .svg-color-pallete {
+                    margin-left: 62px;
+                }
+
+                .svg-image {
+                    margin-left: 114px;
+                }
+
+                .svg-archive {
+                    margin-left: 166px;
+                }
+
+                .svg-three-dots-menu {
+                    margin-left: 210px;
+                }
+
+                .btn-close {
+                    margin-left: 500px;
+                    padding: 8px 24px;
+                    border-radius: 4px;
+
+                    &:hover {
+                        background-color: $light-gray2;
+                        filter: brightness(1.09);
+                    }
+                }
+
+            }
+        }
+
+    }
+
+}

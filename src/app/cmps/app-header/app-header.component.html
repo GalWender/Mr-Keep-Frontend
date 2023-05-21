@@ -1,0 +1,33 @@
+<section class="header flex align-center">
+    <!-- left side of top nav -->
+    <section class="left flex align-center">
+        <button class="btn btn-hamburger" (click)="onSideNavToggle()">
+            <img class="svg hamburger-svg" src="../../../assets/svg/hamburger.svg" alt="">
+        </button>
+        <div class="logo flex align-center" routerLink="/" routerLinkActive="active">
+            <img class="img logo-img" src="../../../assets/img/logo.png" alt="">
+            <h1 class="logo-text">Mr Keep.</h1>
+        </div>
+        <!-- <button routerLink="/search" routerLinkActive="active" class="btn btn-search flex align-center" *ngIf="!isSearch" (click)="onSearchRoute()"> -->
+        <!-- <img class="svg search-svg" src="../../../assets/svg/search.svg" alt=""> -->
+        <!-- <h3>Search</h3> -->
+        <!-- </button> -->
+        <div class="container container-search flex align-center" routerLink="/search" routerLinkActive="active">
+            <img class="svg svg-search" src="../../../assets/svg/search.svg" alt="">
+            <input class="input input-search" type="text" placeholder="Search"/>
+        </div>
+        <!-- <div class="container container-search flex align-center" *ngIf="isSearch"> -->
+            <!-- <img class="svg svg-search" src="../../../assets/svg/search.svg" alt=""> -->
+            <!-- <input class="input input-search" type="text" placeholder="Search" id="input-search" AutoFocus /> -->
+        <!-- </div> -->
+    </section>
+    <!-- right side of top nav -->
+    <section class="right flex align-center">
+        <button class="btn btn-login flex align-center" routerLink="/login" routerLinkActive="active">
+            <img class="svg svg-login" src="../../../assets/svg/exit.svg" alt="">
+            <span>Login</span>
+        </button>
+    </section>
+    <!-- side nav -->
+    <side-nav></side-nav>
+</section>

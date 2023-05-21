@@ -1,0 +1,27 @@
+<section class="note-add flex align-center justify-center">
+    <div class="container container-note-add flex align-center">
+        <div class="add-note-text-close flex align-center" *ngIf="!addNoteTextToggle" (click)="onOpenAddNoteText()" >
+            <input class="input input-note-add" type="text" placeholder="Take a note..."/>
+            <img class="svg svg-checkbox" src="../../../assets/svg/checkbox.svg" alt="" />
+            <img class="svg svg-image" src="../../../assets/svg/image.svg" alt="" />
+        </div>
+        <div class="add-note-text-open" tabindex="1" *ngIf="addNoteTextToggle" clickOutside (clickOutside)="clickedOutside()">
+            <section class="top flex ">
+                <input class="title" type="text" placeholder="Title" />
+                <img class="svg svg-pin" src="../../../assets/svg/pin.svg" alt="">
+            </section>
+            <section class="middle">
+                <div class="text" placeholder="Take a note..." autofocus contenteditable="true"
+                    datatext="Take a note..."></div>
+            </section>
+            <section class="bottom">
+                <img class="svg svg-bell-plus" src="../../../assets/svg/bell-plus.svg" alt="">
+                <img class="svg svg-color-pallete" src="../../../assets/svg/color-pallete.svg" alt="">
+                <img class="svg svg-image" src="../../../assets/svg/image.svg" alt="">
+                <img class="svg svg-archive" src="../../../assets/svg/archive.svg" alt="">
+                <img class="svg svg-three-dots-menu" src="../../../assets/svg/menu-three-dots.svg" alt="">
+                <button class="btn btn-close" (click)="onCloseAddNoteText()">Close</button>
+            </section>
+        </div>
+    </div>
+</section>

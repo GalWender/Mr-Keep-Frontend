@@ -1,0 +1,38 @@
+<section class="side-nav flex" [ngStyle]="{'width': isSideNavOpen()? '270px' : ''}">
+    <a class="btn btn-notes flex align-center" [ngStyle]="{'border-radius':isSideNavOpen()? '0': '',
+        'margin-left':isSideNavOpen()? '0':'',
+        'padding-left':isSideNavOpen()? '10px': '',
+         'border-top-right-radius': isSideNavOpen()? '20px' : '',
+          'border-bottom-right-radius': isSideNavOpen()? '20px': '' }" routerLink="/" routerLinkActive="active"
+        [routerLinkActiveOptions]="{exact:true}" (click)="onRouteChange($event)">
+        <img class="svg svg-light-bulb" src="../../../assets/svg/light-bulb.svg" alt="">
+        <h3>Notes</h3>
+    </a>
+    <a class="btn btn-reminder flex align-center" [ngStyle]="{'border-radius':isSideNavOpen()? '0': '',
+        'margin-left':isSideNavOpen()? '0':'',
+        'padding-left':isSideNavOpen()? '10px': '',
+         'border-top-right-radius': isSideNavOpen()? '20px' : '',
+          'border-bottom-right-radius': isSideNavOpen()? '20px': '' }" routerLink="/reminder" routerLinkActive="active"
+        (click)="onRouteChange($event)">
+        <img class="svg svg-bell" src="../../../assets/svg/bell.svg" alt="">
+        <h3>Reminders</h3>
+    </a>
+    <a class="btn btn-archive flex align-center" [ngStyle]="{'border-radius':isSideNavOpen()? '0': '',
+        'margin-left':isSideNavOpen()? '0':'',
+        'padding-left':isSideNavOpen()? '10px': '',
+         'border-top-right-radius': isSideNavOpen()? '20px' : '',
+          'border-bottom-right-radius': isSideNavOpen()? '20px': '' }" routerLink="/archive" routerLinkActive="active"
+        (click)="onRouteChange($event)">
+        <img class="svg svg-archive" src="../../../assets/svg/archive.svg" alt="">
+        <h3>Archive</h3>
+    </a>
+    <a class="btn btn-trash flex align-center" [ngStyle]="{'border-radius':isSideNavOpen()? '0': '',
+        'margin-left':isSideNavOpen()? '0':'',
+        'padding-left':isSideNavOpen()? '10px': '',
+         'border-top-right-radius': isSideNavOpen()? '20px' : '',
+          'border-bottom-right-radius': isSideNavOpen()? '20px': '' }" routerLink="/trash" routerLinkActive="active"
+        (click)="onRouteChange($event)">
+        <img class="svg svg-trash" src="../../../assets/svg/trash.svg" alt="">
+        <h3>Trash</h3>
+    </a>
+</section>

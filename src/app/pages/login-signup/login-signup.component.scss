@@ -1,0 +1,95 @@
+@import '../../../styles.scss';
+
+.login-signup {
+    transition: 150ms;
+    transition-delay: 350ms;
+    min-height: calc(100vh - 64px);
+
+    .faded {
+        color: gray;
+        font-weight: bold;
+        height: 80px;
+    }
+
+    .card {
+        border: none;
+        outline: none;
+        border-radius: 8px;
+        width: 450px;
+        font-family: roboto;
+        flex-direction: column;
+        box-shadow: $boxshadow-1;
+
+        input {
+            width: 100%;
+            height: 100%;
+            background-color: inherit;
+            border: none;
+            outline: none;
+            font-size: $size;
+            border-top-right-radius: 8px;
+            border-bottom-right-radius: 8px;
+        }
+
+        .card-head {
+            background-color: $light-yellow;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            padding: 20px;
+            font-weight: bolder;
+            font-size: $size*1.2;
+        }
+
+        .card-body {
+            padding: 20px;
+            flex-direction: column;
+
+            a {
+                display: flex;
+                align-self: flex-end;
+                color: black;
+                text-decoration: underline;
+                cursor: pointer;
+            }
+
+            label {
+                font-weight: bolder;
+                width: 40%;
+                padding-left: 20px;
+            }
+
+            .field {
+                margin-bottom: 10px;
+                max-width: 550px;
+                height: 80px;
+                border-radius: 8px;
+                background-color: $light-gray1;
+            }
+
+            .container-error {
+                height: 30px;
+            }
+
+            .btn-form-submit {
+                margin-top: 30px;
+                font-size: calc($size * 1.02);
+                display: flex;
+                align-self: flex-start;
+                height: 60px;
+                width: 100px;
+                align-items: center;
+                justify-content: center;
+                border-radius: 8px;
+                font-weight: bolder;
+                font-family: roboto;
+                transition: ease-in 100ms ;
+                box-shadow: $boxshadow-1;
+                
+                &:hover {
+                    background-color: $light-yellow;
+                }
+            }
+
+        }
+    }
+}

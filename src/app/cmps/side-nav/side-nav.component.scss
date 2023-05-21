@@ -1,0 +1,80 @@
+@import '../../../styles.scss';
+
+.side-nav {
+    position: fixed;
+    left: 0;
+    top: 64px;
+    width: 57px;
+    height: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    flex-direction: column;
+    padding-top: 10px;
+    transition: ease 150ms;
+    transition-delay: 350ms;
+    background-color: white;
+
+
+    &:hover {
+        width: 270px;
+        box-shadow: $boxshadow-3;
+    }
+
+    &:hover .btn {
+        margin-left: 0;
+        padding-left: 10px;
+        border-radius: 0%;
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
+    }
+
+    .btn {
+        margin-left: 10px;
+        cursor: pointer;
+        border-radius: 50%;
+        transition: ease 150ms;
+        transition-delay: 350ms;
+        text-decoration: none;
+        color: black;
+
+        &:hover {
+            transition-delay: 50ms;
+        }
+
+        &:hover:not(.active) {
+            background-color: $light-gray2;
+        }
+
+        &:hover:not(.active) .svg:hover {
+            background-color: $light-gray2;
+        }
+
+        .svg {
+            padding: 12px;
+            border-radius: 50%;
+
+            &:hover {
+                cursor: pointer;
+                border-radius: 50%;
+            }
+        }
+
+        h3 {
+            margin-left: 15px;
+            font-family: roboto;
+            font-size: 15px;
+            font-weight: 450;
+        }
+    }
+
+
+    .active {
+        background-color: $light-yellow;
+
+        //     border-top-right-radius: 20px;
+        //     border-bottom-right-radius: 20px;
+        //     margin-left: 0;
+        // padding-left: 10px;
+    }
+}

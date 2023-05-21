@@ -1,0 +1,94 @@
+<section class="login-signup flex align-center justify-center"
+    [ngStyle]="{'margin-left': isSideNavOpen()? '370px': '100px' }">
+    <div class="card flex">
+        <div class="card-head flex align-center justify-center">{{isSignup? "Signup":"Login"}}</div>
+        <form class="card-body flex" [formGroup]="loginForm" (ngSubmit)="onLogin()" *ngIf="!isSignup">
+            <div class="field flex align-center">
+                <label for="form_email">Email<span class="faded">*</span></label>
+                <input type="email" id="form_email" placeholder="email@domain.com" formControlName="email"
+                    [class.invalid]="loginForm.get('email')?.invalid && 
+                    (loginForm.get('email')?.dirty ||
+                     loginForm.get('email')?.touched ||
+                      isSubmitted)" />
+            </div>
+            <div class="container container-error">
+                <span class="error" *ngIf="loginForm.get('email')?.hasError('required') && 
+                            (loginForm.get('email')?.dirty ||
+                             loginForm.get('email')?.touched ||
+                              isSubmitted)">This field is required.</span>
+            </div>
+            <div class="field flex align-center">
+                <label for="form_password">Password<span class="faded">*</span></label>
+                <input type="password" id="form_password" placeholder="************" formControlName="password"
+                    [class.invalid]="loginForm.get('password')?.invalid && 
+                    (loginForm.get('password')?.dirty || loginForm.get('password')?.touched || isSubmitted)" />
+            </div>
+            <div class="container container-error">
+                <span class="error" *ngIf="loginForm.get('password')?.hasError('required') && 
+                        (loginForm.get('password')?.dirty ||
+                         loginForm.get('password')?.touched ||
+                          isSubmitted)">This field is required.</span>
+            </div>
+            <a (click)="onToggleSignup()">Don't have a login? Sign up.</a>
+            <button class="btn btn-form-submit" type="submit">Submit</button>
+        </form>
+        <form class="card-body flex" [formGroup]="registerForm" (ngSubmit)="onSignup()" *ngIf="isSignup">
+            <div class="field flex align-center">
+                <label for="form_username">Username<span class="faded">*</span></label>
+                <input type="username" id="form_username" placeholder="Username" formControlName="username"
+                    [class.invalid]="registerForm.get('username')?.invalid && 
+                    (registerForm.get('username')?.dirty ||
+                     registerForm.get('username')?.touched ||
+                      isSubmitted)" />
+            </div>
+            <div class="container container-error">
+                <span class="error" *ngIf="registerForm.get('username')?.hasError('required') && 
+                            (registerForm.get('username')?.dirty ||
+                             registerForm.get('username')?.touched ||
+                              isSubmitted)">This field is required.</span>
+            </div>
+            <div class="field flex align-center">
+                <label for="form_fullname">Full Name<span class="faded">*</span></label>
+                <input type="fullname" id="form_fullname" placeholder="Fullname" formControlName="fullname"
+                    [class.invalid]="registerForm.get('fullname')?.invalid && 
+                    (registerForm.get('fullname')?.dirty ||
+                     registerForm.get('fullname')?.touched ||
+                      isSubmitted)" />
+            </div>
+            <div class="container container-error">
+                <span class="error" *ngIf="registerForm.get('fullname')?.hasError('required') && 
+                            (registerForm.get('fullname')?.dirty ||
+                             registerForm.get('fullname')?.touched ||
+                              isSubmitted)">This field is required.</span>
+            </div>
+            <div class="field flex align-center">
+                <label for="form_email">Email<span class="faded">*</span></label>
+                <input type="email" id="form_email" placeholder="email@domain.com" formControlName="email"
+                    [class.invalid]="registerForm.get('email')?.invalid && 
+                    (registerForm.get('email')?.dirty ||
+                     registerForm.get('email')?.touched ||
+                      isSubmitted)" />
+            </div>
+            <div class="container container-error">
+                <span class="error" *ngIf="registerForm.get('email')?.hasError('required') && 
+                            (registerForm.get('email')?.dirty ||
+                             registerForm.get('email')?.touched ||
+                              isSubmitted)">This field is required.</span>
+            </div>
+            <div class="field flex align-center">
+                <label for="form_password">Password<span class="faded">*</span></label>
+                <input type="password" id="form_password" placeholder="************" formControlName="password"
+                    [class.invalid]="registerForm.get('password')?.invalid && 
+                    (registerForm.get('password')?.dirty || registerForm.get('password')?.touched || isSubmitted)" />
+            </div>
+            <div class="container container-error">
+                <span class="error" *ngIf="registerForm.get('password')?.hasError('required') && 
+                        (registerForm.get('password')?.dirty ||
+                         registerForm.get('password')?.touched ||
+                          isSubmitted)">This field is required.</span>
+            </div>
+            <button class="btn btn-form-submit" type="submit">Submit</button>
+        </form>
+
+    </div>
+</section>
