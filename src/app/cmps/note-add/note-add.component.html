@@ -7,12 +7,11 @@
         </div>
         <div class="add-note-text-open" tabindex="1" *ngIf="addNoteTextToggle" clickOutside (clickOutside)="clickedOutside()">
             <section class="top flex ">
-                <input class="title" type="text" placeholder="Title" />
+                <input #addTitle class="title" type="text" placeholder="Title" />
                 <img class="svg svg-pin" src="../../../assets/svg/pin.svg" alt="">
             </section>
             <section class="middle">
-                <div class="text" placeholder="Take a note..." autofocus contenteditable="true"
-                    datatext="Take a note..."></div>
+                <textarea #addText class="text" placeholder="Take a note..."></textarea>
             </section>
             <section class="bottom">
                 <img class="svg svg-bell-plus" src="../../../assets/svg/bell-plus.svg" alt="">
