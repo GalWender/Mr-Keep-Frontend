@@ -83,6 +83,9 @@ h6 {
 .justify-center {
     justify-content: center;
 }
+.column {
+    flex-direction: column;
+}
 
 .error {
     color: red;

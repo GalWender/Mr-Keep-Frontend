@@ -6,15 +6,11 @@ import { Component, OnInit, signal } from '@angular/core';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
-  isSideNavOpen = signal(false)
+export class HomeComponent {
+  isSideNavOpen = this.globalVarsService.isSideNavOpen
 
   constructor(
     private globalVarsService: GlobalVarsService
   ) {}
-
-  ngOnInit(): void {
-    this.isSideNavOpen = this.globalVarsService.isSideNavOpen
-  }
 
 }

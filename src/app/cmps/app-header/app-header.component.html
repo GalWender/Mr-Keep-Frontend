@@ -14,18 +14,34 @@
         <!-- </button> -->
         <div class="container container-search flex align-center" routerLink="/search" routerLinkActive="active">
             <img class="svg svg-search" src="../../../assets/svg/search.svg" alt="">
-            <input class="input input-search" type="text" placeholder="Search"/>
+            <input class="input input-search" type="text" placeholder="Search" />
         </div>
         <!-- <div class="container container-search flex align-center" *ngIf="isSearch"> -->
-            <!-- <img class="svg svg-search" src="../../../assets/svg/search.svg" alt=""> -->
-            <!-- <input class="input input-search" type="text" placeholder="Search" id="input-search" AutoFocus /> -->
+        <!-- <img class="svg svg-search" src="../../../assets/svg/search.svg" alt=""> -->
+        <!-- <input class="input input-search" type="text" placeholder="Search" id="input-search" AutoFocus /> -->
         <!-- </div> -->
     </section>
     <!-- right side of top nav -->
     <section class="right flex align-center">
-        <button class="btn btn-login flex align-center" routerLink="/login" routerLinkActive="active">
-            <img class="svg svg-login" src="../../../assets/svg/exit.svg" alt="">
-            <span>Login</span>
+        <button *ngIf="userObjectLength() === 0" class="btn btn-login flex align-center" routerLink="/login"
+            routerLinkActive="active">
+            <div class="btn-container">
+                <img class="svg svg-login" src="../../../assets/svg/exit.svg" alt="">
+                <span>Login</span>
+            </div>
+        </button>
+        <button *ngIf="userObjectLength() > 0" class="btn btn-login flex align-center column justify-center"
+            routerLink="/login" routerLinkActive="active">
+            <div class="btn-container flex align-center">
+                <img class="svg svg-loggedin" src="../../../assets/svg/person.svg" alt="">
+                <span>
+                    <p>{{nameArray[0]}} {{nameArray[1][0]}}.</p><img class="svg svg-arrow-down"
+                        src="../../../assets/svg/arrow-down.svg" alt="">
+                </span>
+            </div>
+            <div class="btn-nav flex column">
+                <button (click)="onlogout()">logout</button>
+            </div>
         </button>
     </section>
     <!-- side nav -->

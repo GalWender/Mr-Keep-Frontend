@@ -12,8 +12,8 @@ import { Subscription } from 'rxjs';
   templateUrl: './login-signup.component.html',
   styleUrls: ['./login-signup.component.scss']
 })
-export class LoginSignupComponent implements OnInit {
-  isSideNavOpen = signal(false)
+export class LoginSignupComponent {
+  isSideNavOpen = this.globalVarsService.isSideNavOpen
   isSignup: boolean = false
   isSubmitted: boolean = false
 
@@ -34,43 +34,28 @@ export class LoginSignupComponent implements OnInit {
     private fb: FormBuilder,
     private userService: UserService,
     private router: Router,
-  ) {}
-  
-  
-  ngOnInit(): void {
-    this.isSideNavOpen = this.globalVarsService.isSideNavOpen
-  }
+  ) { }
 
   onToggleSignup() {
     this.isSignup = true
   }
 
-  onLogin() {
+  async onLogin() {
     this.isSubmitted = true
     if (this.loginForm.invalid === false) {
       const user = this.loginForm.value
-      this.userSubscription = this.userService.login(user as User).subscribe(res => {
-        if (res) {
-          this.userService.saveLocalUser(res as User)
-          this.userSubscription.unsubscribe()
-          this.router.navigateByUrl("/")
-        }
-      })
+      await this.userService.login(user as User)
+      this.router.navigateByUrl("/")
     }
   }
 
-  onSignup() {
+  async onSignup() {
     console.log(this.registerForm.value, this.registerForm.invalid)
     this.isSubmitted = true
     if (this.registerForm.invalid === false) {
       const user = this.registerForm.value
-      this.userSubscription = this.userService.signup(user as User).subscribe(res => {
-        if (res) {
-          this.userService.saveLocalUser(res as User)
-          this.userSubscription.unsubscribe()
-          this.router.navigateByUrl("/")
-        }
-      })
+      await this.userService.signup(user as User)
+      this.router.navigateByUrl("/")
     }
   }
 

@@ -1,30 +1,26 @@
 import { Injectable, signal } from '@angular/core';
 import { User } from '../interfaces/user';
-import { UserService } from './user.service';
 import { StorageService } from './storage.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GlobalVarsService {
-  // private isSideNavOpenSubject = new BehaviorSubject<boolean>(false);
-  // public isSideNavOpen$ = this.isSideNavOpenSubject.asObservable();
-  // private loggedInUserSubject = new BehaviorSubject<User>({} as User);
-  // public loggedInUser$ = this.loggedInUserSubject.asObservable();
+  STORAGE_KEY_LOGGEDIN_USER: string = 'LOGGED_IN_USER'
   isSideNavOpen = signal(false)
-  loggedInUser = signal(null || {} as User)
+  loggedInUser = signal<User | null>(null)
 
   constructor(
-    private userService: UserService,
     private storageService: StorageService
-    ) {
+  ) {
     const isOpen = this.storageService.loadFromStorage('IS_SIDE_NAV_OPEN') || false
-    if(isOpen) {
+    if (isOpen) {
       this.isSideNavOpen.set(isOpen)
     }
-    
-    const user = this.userService.getLoggedInUser()
-    if(user) {
+
+    const user = this.getLoggedInUser()
+    if (user) {
+      console.log(Object.keys(user));
       this.loggedInUser.set(user)
     }
   }
@@ -36,7 +32,20 @@ export class GlobalVarsService {
 
   setLoggedinUser(user: User) {
     this.loggedInUser.set(user)
-    this.userService.saveLocalUser(user)
+    this.saveLocalUser(user)
+  }
+
+  saveLocalUser(user: User): User {
+    sessionStorage.setItem(this.STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
+    return user
+  }
+
+  getLoggedInUser(): User {
+    const str = sessionStorage.getItem(this.STORAGE_KEY_LOGGEDIN_USER)
+    const res = str ?
+      JSON.parse(str) :
+      null
+    return res
   }
 
 }
